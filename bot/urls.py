@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from webot.views import index,check_wang_jira,check_dba_jira,check_op_jira
+from webot.views import index
+from webot.cront import check_dba_jira,check_op_jira,check_wang_jira
+from yfzx.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('webot/',index)
+    path('webot/',index),
+    path('yfzx/',index),
 
 ]

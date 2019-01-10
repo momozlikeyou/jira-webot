@@ -6,17 +6,19 @@ import json
 import sys
 import logging
 
-Toparty = '7'
+Toparty = '3'
 agentid = 1000003
 corpid = 'wwa6a744b9fe23a710'
 corpsecret = '08GXIsfmGhNrfVdSo5Ju3Ix0knwvgwcGumiOOou3LwE'
 url = 'https://qyapi.weixin.qq.com'
 subject = sys.argv[1]
-message = ‘’
+message = ' ' 
 #message2 = sys.argv[3]
 #message3 = sys.argv[4]
+#message4 = sys.argv[5]
 
-logging.basicConfig(level=logging.DEBUG, filename='E:\Python_project\Scripts\my.log',format='%(asctime)s - %(levelname)s: %(message)s')
+logging.basicConfig(level=logging.DEBUG, filename='E:\Python_project\Scripts\my.log',
+                    format='%(asctime)s - %(levelname)s: %(message)s')
 
 
 class Weixin:
