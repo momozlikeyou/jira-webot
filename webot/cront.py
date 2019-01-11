@@ -13,10 +13,10 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 定义连接系统
 
 options = {
-    'server': 'https://211.160.73.226:29943/jira/',
+    'server': 'https://xxx:xxx:xxx:xxx:port/jira/',
     'verify': False,
 }
-jira = JIRA(options, basic_auth=('admin', 'AdminYwzx'))
+jira = JIRA(options, basic_auth=('admin', 'xxx'))
 
 
 # *******************定时任务判断统计运维负责人审核阶段********************************
