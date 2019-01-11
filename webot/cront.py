@@ -16,7 +16,7 @@ options = {
     'server': 'https://xxx:xxx:xxx:xxx:port/jira/',
     'verify': False,
 }
-jira = JIRA(options, basic_auth=('admin', 'xxx'))
+jira = JIRA(options, basic_auth=('admin', 'xxxx'))
 
 
 # *******************定时任务判断统计运维负责人审核阶段********************************

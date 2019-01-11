@@ -15,7 +15,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 定义老jira相关信息
 options = {
-    'server': 'https://xx:xx:xx:xx:port/jira/',
+    'server': 'https://xx:xx:xx:xx:port/xx/',
     'verify': False,
 }
 jira = JIRA(options, basic_auth=('admin', 'XXX'))
