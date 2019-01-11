@@ -20,7 +20,6 @@ options = {
 }
 jira = JIRA(options, basic_auth=('admin', 'AdminYwzx'))
 
-
 # 定义老jira相关信息
 options2 = {
     'server': 'https://211.160.73.226:29943/jira/',
