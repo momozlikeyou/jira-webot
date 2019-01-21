@@ -25,6 +25,7 @@ options2 = {
     'server': 'http://xxx.xxx.xxx.xxx:8080',
     'verify': False,
 }
+
 jira2 = JIRA(options2, basic_auth=('admin', 'AdminYwzx'))
 
 
