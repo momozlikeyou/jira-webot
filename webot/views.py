@@ -15,17 +15,17 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 定义老jira相关信息
 options = {
-    'server': 'https://xx:xx:xx:xx:port/xx/',
+    'server': 'https://xxx.xxx.xxx.xxx:29943/jira/',
     'verify': False,
 }
-jira = JIRA(options, basic_auth=('admin', 'XXX'))
+jira = JIRA(options, basic_auth=('admin', 'AdminYwzx'))
 
 # 定义老jira相关信息
 options2 = {
-    'server': 'https://xx:xx:xx:xx:port/jira/',
+    'server': 'http://xxx.xxx.xxx.xxx:8080',
     'verify': False,
 }
-jira2 = JIRA(options2, basic_auth=('admin', 'xxx'))
+jira2 = JIRA(options2, basic_auth=('admin', 'AdminYwzx'))
 
 
 def index(request):
@@ -53,7 +53,7 @@ def index(request):
                 appro_info = data['comment']['body']
             subject = data['issue']['fields']['summary']
             dangquser = data['user']['displayName']
-            url = u"https://211.160.73.226:29943/jira/browse/%s"  %issue
+            url = u"https://xxx.xxx.xxx.xxx:29943/jira/browse/%s"  %issue
 
             if status2 == u'DBA审核中':
                 os.system("python /root/bot/webot/Script/dba.py %s的SQL数据变更申请需要您审批:%s 主题:%s 链接:%s 上一审批人:%s 审批意见:%s 审批格式:%s*同意*同意执行!" %(creater,issue,subject,url,dangquser,appro_info,num))
@@ -67,5 +67,9 @@ def index(request):
                 os.system("python /root/bot/webot/Script/deploy.py %s的SQL数据变更申请%s已执行完毕，请您及时验证并关闭单子！--主题:%s[咖啡][咖啡][咖啡]"%(creater,issue,subject))
         if keynames == 'YFZX':
             os.system("python /root/bot/yfzx/Script/yfzx.py [咖啡]【测试】有数据推送过来[咖啡]")
+        if keynames == 'NSQL':
+            issue = data['issue']['key']
+            subject = data['issue']['fields']['summary']
+            os.system("python /root/bot/yfzx/Script/yfzx_sql.py 研发SQL申请%s状态已变更：主题：%s"%(issue,subject))
     return render(request,"index.html")
 # Create your views here.
