@@ -34,7 +34,7 @@ def index(request):
         print("**********************************************")
         # data = json.dumps(json.loads(request.body),ensure_ascii=False)
         data = json.loads(request.body)
-        keynames = data['issue']['field']['project']['key']
+        keynames = data['issue']['fields']['project']['key']
         isstype = data['issue']['fields']['issuetype']['name']
         print(data)
         print("项目代号为"+keynames)
@@ -70,11 +70,11 @@ def index(request):
         if keynames == 'XYFZX' and isstype == '客服问题':
             issue = data['issue']['key']
             subject = data['issue']['fields']['summary']
-            os.system("python /root/bot/yfzx/Script/yfzx.py 客服问题SQL申请%s状态已变更：主题：%s"%(issue,subject))
+            os.system("python /root/bot/webot/Script/yfzx.py 客服问题SQL申请%s状态已变更：主题：%s"%(issue,subject))
         if keynames == 'NSQL':
             issue = data['issue']['key']
             subject = data['issue']['fields']['summary']
 
-            os.system("python /root/bot/yfzx/Script/yfzx_sql.py 研发SQL申请%s状态已变更：主题：%s"%(issue,subject))
+            os.system("python /root/bot/webot/Script/yfzx_sql.py 研发SQL申请%s状态已变更：主题：%s"%(issue,subject))
     return render(request,"index.html")
 # Create your views here.
