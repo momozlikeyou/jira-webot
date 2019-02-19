@@ -35,6 +35,7 @@ def index(request):
         # data = json.dumps(json.loads(request.body),ensure_ascii=False)
         data = json.loads(request.body)
         keynames = data['issue']['field']['project']['key']
+        isstype = data['issue']['fields']['issuetype']['name']
         print(data)
         print("项目代号为"+keynames)
         print("**********************************************")
@@ -66,11 +67,14 @@ def index(request):
             if status2 == u'执行完毕，等待验证':
                 os.system("python /root/bot/webot/Script/deploy_yw.py [咖啡]%s执行完成,辛苦了[咖啡]" % issue)
                 os.system("python /root/bot/webot/Script/deploy.py %s的SQL数据变更申请%s已执行完毕，请您及时验证并关闭单子！--主题:%s[咖啡][咖啡][咖啡]"%(creater,issue,subject))
-        if keynames == 'YFZX':
-            os.system("python /root/bot/yfzx/Script/yfzx.py [咖啡]【测试】有数据推送过来[咖啡]")
+        if keynames == 'XYFZX' and isstype == '客服问题':
+            issue = data['issue']['key']
+            subject = data['issue']['fields']['summary']
+            os.system("python /root/bot/yfzx/Script/yfzx.py 客服问题SQL申请%s状态已变更：主题：%s"%(issue,subject))
         if keynames == 'NSQL':
             issue = data['issue']['key']
             subject = data['issue']['fields']['summary']
+
             os.system("python /root/bot/yfzx/Script/yfzx_sql.py 研发SQL申请%s状态已变更：主题：%s"%(issue,subject))
     return render(request,"index.html")
 # Create your views here.
