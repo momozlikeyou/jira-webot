@@ -8,8 +8,8 @@ import logging
 
 Toparty = '6'
 agentid = 1000003
-corpid = 'wwa6a744b9fe23a710'
-corpsecret = '08GXIsfmGhNrfVdSo5Ju3Ix0knwvgwcGumiOOou3LwE'
+corpid = 'xxxxxxxxxxxxxxxx'
+corpsecret = 'xxxxxxxxxxxxxxxx'
 url = 'https://qyapi.weixin.qq.com'
 subject = sys.argv[1]
 message = sys.argv[2]
