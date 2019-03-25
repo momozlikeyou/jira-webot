@@ -15,10 +15,10 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 定义老jira相关信息
 options = {
-    'server': 'https://xxx.xxx.xxx.xxx:29943/jira/',
+    'server': 'https://xxx.xxx.xxx.xxx:port/jira/',
     'verify': False,
 }
-jira = JIRA(options, basic_auth=('admin', 'AdminYwzx'))
+jira = JIRA(options, basic_auth=('admin', 'admin'))
 
 # 定义老jira相关信息
 options2 = {
@@ -26,7 +26,7 @@ options2 = {
     'verify': False,
 }
 
-jira2 = JIRA(options2, basic_auth=('admin', 'AdminYwzx'))
+jira2 = JIRA(options2, basic_auth=('admin', 'admin'))
 
 
 def index(request):
